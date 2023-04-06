@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Navbar from "./Navbar";
 
 const Layout = ({ children }) => {
   return (
@@ -9,9 +10,12 @@ const Layout = ({ children }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className=" bg-gray-500 min-w-full min-h-screen text-white">
-        <Navbar />
-        {children}
+
+      <main className=" bg-primary min-w-full min-h-screen text-white ">
+        <div className="px-5 max-w-3xl mx-auto">
+          <Navbar />
+          {children}
+        </div>
       </main>
     </>
   );

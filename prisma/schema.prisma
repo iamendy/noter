@@ -12,9 +12,11 @@ datasource db {
 
 model Note{
   id String @id @default(cuid())
-  title String
   content String
-  public Boolean?
+  isPublic Boolean? @default(false)
+  userId String
+  createdAt DateTime @default(now())
+  owner User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Account {
@@ -52,6 +54,7 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
+  notes Note[]
 }
 
 model VerificationToken {
